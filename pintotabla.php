@@ -23,7 +23,7 @@
 						<p class="card-text m-0 p-0"><?php echo trim($row["AUTOR"]).' | '.trim($row["EDITORIAL"]); ?></p>
 					</div>
 					<h3 class="card-text d-inline"><?php echo trim($row['PRECIO']).'€' ?></h3>
-					<button type="button" onclick="addCarro(<?php echo $row["ID"] ?>)" class="btn btn-primary float-right d-inline">Comprar</button>      
+					<button type="button" onclick="addCarro(this,<?php echo $row["ID"] ?>)" class="btn btn-primary float-right d-inline">Comprar</button>      
 				</div>
             </div>
         </div>

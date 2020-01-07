@@ -30,7 +30,7 @@ $productos=$_SESSION['productos'];//RECUPERAMOS LOS PRODUCTOS QUE TENGAMOS ALMAC
 				<a href="javascript:history.go(-1)" type="button" style="font-size:24px;" class="btn btn-primary">&#129144</a>
 			</div>
 		</div>
-		<div class="col-sm-8 col-md-8 col-8 text-center text-primary pb-0 mb-0">
+		<div class="pt-2 col-sm-8 col-md-8 col-8 text-center text-primary pb-0 mb-0">
 			<img class="img-fluid" src="logo.png"  height="300" width="300"/>
 			<br>
 			<h5 class="text-center">Libreria Pablo Avila</h5>

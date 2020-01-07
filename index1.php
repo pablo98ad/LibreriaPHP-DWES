@@ -17,7 +17,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+	.pulsado{
 	
+	
+		transition: opacity 2s ease-in-out;
+		opacity: 0;
+		
+	}
+	</style>
     <title>Libreria bootstrap Pablo Avila</title>
 	
 	
@@ -34,10 +42,33 @@
 		verNumCarro();//para cuando recargemos la pagina aparezcan cuandos articulos tenemos en el carro		
 	}
 	
-	function addCarro(id){
+	function addCarro(boton,id){
 		if(sesion){
+
 			$("#estrella").css("visibility","visible");
 			$("#carrito").load("addCarro.php",{producto:id}, function(){
+				
+				$(boton).append('<p style="position:absolute;  z-index:2" class="text-success"><b>¡Añadido!</b></p>');
+				var anadido=$(boton).children();
+				anadido.css('top', '-=57');
+				/*setTimeout(function(){
+					anadido.addClass('pulsado');
+				}, 500);*/
+			
+				setTimeout(function(){
+					anadido.remove();
+				}, 600);
+				setTimeout(function(){
+					anadido.animate({
+					 top: '-=50px'});
+				}, 11);
+				
+				window.setTimeout(function() {
+					anadido.fadeTo(500, 0).slideUp(500, function() {
+					$(this).hide();
+				});
+				}, 12);
+				
 				$("#estrella").css("visibility","hidden");
 			});
 		}else{
@@ -90,10 +121,12 @@
 <!-- ******************************* CABECERA ************************************************** -->
 	  <div class=" row mb-2 pb-2 align-items-center justify-content-center">
 				<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-primary border rounded"> -->
-				<div class="col-sm-10 col-md-11 col-12 text-center text-primary ">
+				<div class="pt-2 col-sm-10 col-md-11 col-12 text-center text-primary ">
+						
 						<img class="img-fluid" src="logo.png"  height="300" width="300"/>
 						<br>
 						<h5 class="text-center">Libreria Pablo Avila</h5>
+						<h6 class="pb-0 mb-0 text-center">Tienda</h6>
 				</div>
 				
 				<!-- con una row dentro de una col consigo que la estrella tenga un comportamiento aceptable -->
